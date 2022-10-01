@@ -25,6 +25,9 @@ namespace WinFormsApp2.GeoJSON
 
         public class geom
         {
+            [JsonIgnore]
+            public int decimals = 2;
+
             [JsonInclude]
             public string type { get; set; } = "Point";
 
@@ -36,9 +39,9 @@ namespace WinFormsApp2.GeoJSON
             {
                 get { return new Vector3(coords[0], coords[1], coords[2]); }
                 set { coords = new float[3] {
-                        (float)Math.Round(value.X, 2),
-                        (float)Math.Round(value.Y, 2),
-                        (float)Math.Round(value.Z, 2)
+                        (float)Math.Round(value.X, decimals),
+                        (float)Math.Round(value.Y, decimals),
+                        (float)Math.Round(value.Z, decimals)
                     };
                 }
             }
