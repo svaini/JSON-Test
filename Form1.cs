@@ -1,7 +1,7 @@
 using System.Text.Json;
-using WinFormsApp2.GeoJSON;
 using System.Numerics;
 using System.Diagnostics;
+using WinFormsApp2.GeoJSON;
 
 namespace WinFormsApp2
 {
@@ -25,7 +25,6 @@ namespace WinFormsApp2
             Feature feature = new Feature();
             feature.properties.name = "TheFuture";
             feature.geometry.coordinates = new Vector3(123.4f, 345.678f, 567.321f);
-            feature.geometry.decimals = 2;
             featureCollection.features.Add(feature);
 
             string jsonString = JsonSerializer.Serialize(featureCollection, serializerOptions);

@@ -26,9 +26,6 @@ namespace WinFormsApp2.GeoJSON
         public class geom
         {
             [JsonIgnore]
-            public int decimals = 2;
-
-            [JsonIgnore]
             private Vector3 coords;
 
             [JsonIgnore]
@@ -43,10 +40,10 @@ namespace WinFormsApp2.GeoJSON
                 get { return coords; }
                 set { coords = value;
                     floatCoordsArray = new float[3] {
-                        (float)Math.Round(value.X, decimals),
-                        (float)Math.Round(value.Y, decimals),
-                        (float)Math.Round(value.Z, decimals)}
-                    ;
+                        (float)Math.Round(value.X, 2),
+                        (float)Math.Round(value.Y, 2),
+                        (float)Math.Round(value.Z, 2)
+                    };
                 }
             }
 
