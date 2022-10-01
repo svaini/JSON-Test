@@ -25,9 +25,10 @@ namespace WinFormsApp2.GeoJSON
 
         public class geom
         {
+            [JsonInclude]
             public string type { get; set; } = "Point";
 
-            [JsonPropertyName("coordinates")]
+            [JsonInclude] [JsonPropertyName("coordinates")]
             public float[] coords { get; set; } = new float[3] {0f, 0f, 0f};
 
             [JsonIgnore]
@@ -42,7 +43,6 @@ namespace WinFormsApp2.GeoJSON
                 }
             }
         }
-
 
         [JsonInclude]
         public string type { get; } = "Feature";

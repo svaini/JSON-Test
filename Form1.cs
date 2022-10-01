@@ -23,10 +23,15 @@ namespace WinFormsApp2
         {
             FeatureCollection featureCollection = new();
 
-            Feature feature = new Feature();
-            feature.properties.name = "TheFuture";
-            feature.geometry.coordinates = new Vector3(123.4f, 345.678f, 567.321f);
-            featureCollection.features.Add(feature);
+            Feature feature1 = new();
+            feature1.properties.name = "Feature1";
+            feature1.geometry.coordinates = new Vector3(123.4f, 345.678f, 567.321f);
+            featureCollection.features.Add(feature1);
+
+            Feature feature2 = new();
+            feature2.properties.name = "Feature2";
+            feature2.geometry.coordinates = new Vector3(222.222f, 333.333f, 444.444f);
+            featureCollection.features.Add(feature2);
 
             string jsonString = JsonSerializer.Serialize(featureCollection, serializerOptions);
             textBox1.Text = jsonString;
@@ -36,6 +41,7 @@ namespace WinFormsApp2
         {
             FeatureCollection? featureCollection;
             string serializedText = textBox1.Text;
+            textBox2.Clear();
 
             try
             {
@@ -44,10 +50,11 @@ namespace WinFormsApp2
                 if (featureCollection == null) return;
                 foreach (Feature feature in featureCollection.features)
                 {
-                    Vector3 pos = feature.geometry.coordinates;
-                    //Debug.WriteLine(pos.ToString("0.00", CultureInfo.InvariantCulture));
-                    //Debug.WriteLine($"x:{pos.X}, y:{pos.Y}, z:{pos.Z}");
-                    textBox2.Text = pos.ToString("0.00", CultureInfo.InvariantCulture);
+                    Vector3 position = feature.geometry.coordinates;
+                    string name = feature.properties.name;
+                    string strPos = position.ToString("0.00", CultureInfo.InvariantCulture);
+                    Debug.WriteLine($"{name} {strPos}");
+                    textBox2.Text += $"{name} {strPos}\r\n";
                 }
             }
             catch (Exception ex)
