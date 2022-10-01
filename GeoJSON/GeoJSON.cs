@@ -29,7 +29,7 @@ namespace WinFormsApp2.GeoJSON
             public int decimals = 2;
 
             [JsonInclude]
-            public string type { get; set; } = "Point";
+            public string type { get; } = "Point";
 
             [JsonInclude] [JsonPropertyName("coordinates")]
             public float[] coords { get; set; } = new float[3] {0f, 0f, 0f};
