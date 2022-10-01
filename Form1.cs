@@ -25,7 +25,7 @@ namespace WinFormsApp2
 
             Feature feature1 = new();
             feature1.properties.name = "Feature1";
-            feature1.geometry.coordinates = new Vector3(123.4f, 345.678f, 567.321f);
+            feature1.geometry.coordinates = new Vector3(123.4f, 345.678f, 567.322f);
             featureCollection.features.Add(feature1);
 
             Feature feature2 = new();
