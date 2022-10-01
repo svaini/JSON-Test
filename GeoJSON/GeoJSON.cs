@@ -31,7 +31,7 @@ namespace WinFormsApp2.GeoJSON
             [JsonInclude]
             public string type { get; } = "Point";
 
-            [JsonInclude] [JsonPropertyName("coordinates")]
+            [JsonInclude, JsonPropertyName("coordinates")]
             public float[] coords { get; set; } = new float[3] {0f, 0f, 0f};
 
             [JsonIgnore]
