@@ -30,7 +30,7 @@ namespace WinFormsApp2
 
             Feature feature2 = new();
             feature2.properties.name = "Feature2";
-            feature2.geometry.coordinates = new Vector3(222.222f, 333.333f, 444.444f);
+            feature2.geometry.coordinates = new Vector3(222.222f, 333.333f, 444.443f);
             featureCollection.features.Add(feature2);
 
             string jsonString = JsonSerializer.Serialize(featureCollection, serializerOptions);
