@@ -6,7 +6,7 @@ namespace WinFormsApp2.GeoJSON
     public class FeatureCollection
     {
         [JsonInclude]
-        public string type { get; set; } = "FeatureCollection";
+        public string type { get; } = "FeatureCollection";
 
         [JsonInclude]
         public string name { get; set; } = string.Empty;
@@ -25,32 +25,24 @@ namespace WinFormsApp2.GeoJSON
 
         public class geom
         {
-            [JsonIgnore]
-            private Vector3 coords;
-
-            [JsonIgnore]
-            private float[] floatCoordsArray = new float[3] {111f, 222f, 333f};
-
-            [JsonInclude]
             public string type { get; set; } = "Point";
+
+            [JsonPropertyName("coordinates")]
+            public float[] coords { get; set; } = new float[3] {0f, 0f, 0f};
 
             [JsonIgnore]
             public Vector3 coordinates
             {
-                get { return coords; }
-                set { coords = value;
-                    floatCoordsArray = new float[3] {
+                get { return new Vector3(coords[0], coords[1], coords[2]); }
+                set { coords = new float[3] {
                         (float)Math.Round(value.X, 2),
                         (float)Math.Round(value.Y, 2),
                         (float)Math.Round(value.Z, 2)
                     };
                 }
             }
-
-            [JsonInclude]
-            [JsonPropertyName("coordinates")]
-            public float[] getCoordArray { get { return floatCoordsArray; } }
         }
+
 
         [JsonInclude]
         public string type { get; } = "Feature";

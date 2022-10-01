@@ -2,6 +2,7 @@ using System.Text.Json;
 using System.Numerics;
 using System.Diagnostics;
 using WinFormsApp2.GeoJSON;
+using System.Globalization;
 
 namespace WinFormsApp2
 {
@@ -28,28 +29,30 @@ namespace WinFormsApp2
             featureCollection.features.Add(feature);
 
             string jsonString = JsonSerializer.Serialize(featureCollection, serializerOptions);
-            textBoxInput.Text= jsonString;
+            textBox1.Text = jsonString;
         }
 
         void deserialize()
         {
             FeatureCollection? featureCollection;
+            string serializedText = textBox1.Text;
 
             try
             {
-                featureCollection = JsonSerializer.Deserialize<FeatureCollection>(textBoxInput.Text, new JsonSerializerOptions() {WriteIndented = true});
+                featureCollection = JsonSerializer.Deserialize<FeatureCollection>(serializedText);
 
                 if (featureCollection == null) return;
                 foreach (Feature feature in featureCollection.features)
                 {
                     Vector3 pos = feature.geometry.coordinates;
-                    Debug.WriteLine($"x:{pos.X}, y:{pos.Y}, z:{pos.Z}");
-                    textBoxOutput.Text = $"{pos.X}, {pos.Y}, {pos.Z}";
+                    //Debug.WriteLine(pos.ToString("0.00", CultureInfo.InvariantCulture));
+                    //Debug.WriteLine($"x:{pos.X}, y:{pos.Y}, z:{pos.Z}");
+                    textBox2.Text = pos.ToString("0.00", CultureInfo.InvariantCulture);
                 }
             }
             catch (Exception ex)
             {
-                textBoxOutput.Text = ex.Message;
+                textBox2.Text = ex.Message;
                 return;
             }
         }
@@ -66,12 +69,12 @@ namespace WinFormsApp2
 
         private void buttonInputClear(object sender, EventArgs e)
         {
-            textBoxInput.Clear();
+            textBox1.Clear();
         }
 
         private void buttonOutputClear(object sender, EventArgs e)
         {
-            textBoxOutput.Clear();
+            textBox2.Clear();
         }
     }
 }

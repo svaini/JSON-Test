@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.button1 = new System.Windows.Forms.Button();
-            this.textBoxInput = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
-            this.textBoxOutput = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -48,13 +48,13 @@
             // 
             // textBoxInput
             // 
-            this.textBoxInput.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxInput.Location = new System.Drawing.Point(12, 41);
-            this.textBoxInput.Multiline = true;
-            this.textBoxInput.Name = "textBoxInput";
-            this.textBoxInput.Size = new System.Drawing.Size(579, 484);
-            this.textBoxInput.TabIndex = 1;
+            this.textBox1.Location = new System.Drawing.Point(12, 41);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBoxInput";
+            this.textBox1.Size = new System.Drawing.Size(579, 484);
+            this.textBox1.TabIndex = 1;
             // 
             // button2
             // 
@@ -68,12 +68,12 @@
             // 
             // textBoxOutput
             // 
-            this.textBoxOutput.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxOutput.Location = new System.Drawing.Point(599, 41);
-            this.textBoxOutput.Multiline = true;
-            this.textBoxOutput.Name = "textBoxOutput";
-            this.textBoxOutput.Size = new System.Drawing.Size(503, 484);
-            this.textBoxOutput.TabIndex = 3;
+            this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox2.Location = new System.Drawing.Point(599, 41);
+            this.textBox2.Multiline = true;
+            this.textBox2.Name = "textBoxOutput";
+            this.textBox2.Size = new System.Drawing.Size(503, 484);
+            this.textBox2.TabIndex = 3;
             // 
             // button3
             // 
@@ -102,9 +102,9 @@
             this.ClientSize = new System.Drawing.Size(1114, 541);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
-            this.Controls.Add(this.textBoxOutput);
+            this.Controls.Add(this.textBox2);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.textBoxInput);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.button1);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -116,9 +116,9 @@
         #endregion
 
         private Button button1;
-        private TextBox textBoxInput;
+        private TextBox textBox1;
         private Button button2;
-        private TextBox textBoxOutput;
+        private TextBox textBox2;
         private Button button3;
         private Button button4;
     }
